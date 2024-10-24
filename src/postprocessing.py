@@ -1,6 +1,6 @@
 import numpy as np
 import CoolProp.CoolProp as CP
-from funkcije import alpha_unutarnje, dpdl_trenja, gustoca_interpolirana, temperatura_interpolirana, x_termo_coolprop
+from funkcije import alpha_unutarnje, dpdl_trenja
 from velicine import *
 import os
 import scipy.ndimage
@@ -14,6 +14,7 @@ def prikaz_velicina_prostorno(trenutak, velicina):
     plt.legend()
     plt.xlabel('udaljenost od ustrujne povrsine [m]')
     plt.ylabel(raspored_velicina[velicina] + ' ' + jedinice[velicina])
+    plt.show()
     return None
 
 def prikaz_velicina_u_svim_vremenima(velicina):
@@ -22,6 +23,7 @@ def prikaz_velicina_u_svim_vremenima(velicina):
     plt.legend()
     plt.xlabel('udaljenost od ustrujne povrsine [m]')
     plt.ylabel(raspored_velicina[velicina] + ' ' + jedinice[velicina])
+    plt.show()
     return None
 
 def prikaz_velicina_u_vremenskom_rasponu(velicina, pocetni_trenutak, krajnji_trenutak):
@@ -47,7 +49,7 @@ def prikaz_velicina_vremenski(pocetni_trenutak, zavrsni_trenutak, velicina, loka
     return None
 
 def citaj_stanja(ime_direktorija):
-    putanja_rezultata = '/home/josip/Desktop/diplomski/kod/' + ime_direktorija + '/'
+    putanja_rezultata = '../' + ime_direktorija + '/'
     broj_volumena = len( np.genfromtxt(putanja_rezultata + '0/brzina.csv', delimiter=',') )
     broj_rjesenih_trenutaka = len(os.listdir(putanja_rezultata))
     memorija = np.zeros((broj_rjesenih_trenutaka, broj_velicina, broj_volumena))
@@ -57,12 +59,12 @@ def citaj_stanja(ime_direktorija):
             memorija[t, i, :] = np.genfromtxt(putanja, delimiter=',')
     return memorija
 
-direktorij_rezultata = 'rezultati'
+direktorij_rezultata = 'results'
 
 rjesenje = citaj_stanja(direktorij_rezultata)
 
 def citaj_info(file):
-    putanja_rezultata = '/home/josip/Desktop/diplomski/kod/' + file +'/'
+    putanja_rezultata = '../' + file + '/'
     broj_rjesenih_trenutaka = len( os.listdir(putanja_rezultata) )
     informacije = np.zeros((broj_rjesenih_trenutaka, 4))
     for t in range(broj_rjesenih_trenutaka):
@@ -117,19 +119,8 @@ def entalpija_isparavanja():
 def courant(trenutak):
     co = rjesenje[trenutak, 0, :] * (vremena[trenutak] - vremena[trenutak - 1]) / dx
     plt.plot(co)
+    plt.show()
     return co
-
-def transformacija_rjesenja_na_drugu_mrezu(stari_broj_celija, novi_broj_celija, trenutak):
-    info = np.array([0, 0, 0, 0])
-    putanja_direktorija = '/home/josip/Desktop/diplomski/kod/rezultati_transformirani_na_' + str(novi_broj_celija) + '_celija/0/'
-    os.makedirs(os.path.dirname(putanja_direktorija), exist_ok=True)
-    putanja_info = putanja_direktorija + 'informacije.csv'
-    np.savetxt(putanja_info, info, delimiter=",")
-    for i in range(broj_velicina):
-        novo_rjesenje = scipy.ndimage.zoom(rjesenje[trenutak, i, :], novi_broj_celija / stari_broj_celija)
-        putanja_velicine = putanja_direktorija + raspored_velicina[i] + '.csv'
-        np.savetxt(putanja_velicine, novo_rjesenje, delimiter=",")
-    return print('snimljeno!')
 
 def provjera_zoe_stacionarnog_stanja(ulazna_granica, izlazna_granica, trenutak):
     toplinski_tok_predan_fluidu = sum(rjesenje[trenutak, 6, ulazna_granica : izlazna_granica] * d_u * np.pi *
@@ -149,6 +140,7 @@ def provjera_stacionarnosti_stijenke(trenutak):
     omjer = q_vanjsko / q_unutarnje
     plt.plot(omjer)
     plt.plot([0, n_l], [1, 1])
+    plt.show()
     return omjer
 
 def provjera_alphe(p, x_min, x_max, m, q):
@@ -270,3 +262,6 @@ def achard_bezdimenzijske(trenutak):
     j = brzina[0] / v_0 # provjeri
 
     return print('N_SUB = ', n_sub, '\nGAMMA = ', gamma, '\nFROUDE^-1 = ', fr_inverz, '\nj = ', j)
+
+
+provjera_stacionarnosti_stijenke(0)

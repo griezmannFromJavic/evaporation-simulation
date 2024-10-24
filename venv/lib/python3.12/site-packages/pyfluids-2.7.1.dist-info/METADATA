@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: pyfluids
+Version: 2.7.1
+Summary: Simple, full-featured, lightweight CoolProp wrapper for Python
+Home-page: https://github.com/portyanikhin/PyFluids
+License: MIT
+Keywords: CoolProp,fluids,mixtures,humid,air,thermophysical,properties,thermodynamics
+Author: Vladimir Portyanikhin
+Author-email: v.portyanikhin@ya.ru
+Requires-Python: >=3.8,<3.13
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Manufacturing
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Education
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Dist: CoolProp (==6.6.0)
+Requires-Dist: tomli (==2.0.2)
+Project-URL: Documentation, https://github.com/portyanikhin/PyFluids
+Project-URL: Repository, https://github.com/portyanikhin/PyFluids
+Description-Content-Type: text/markdown
+
+# ![PyFluids](https://raw.githubusercontent.com/portyanikhin/PyFluids/main/pictures/header.png)
+
+[![Build & Tests](https://github.com/portyanikhin/PyFluids/actions/workflows/build-tests.yml/badge.svg)](https://github.com/portyanikhin/PyFluids/actions/workflows/build-tests.yml)
+[![CodeQL](https://github.com/portyanikhin/PyFluids/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/portyanikhin/PyFluids/actions/workflows/codeql-analysis.yml)
+[![PyPI](https://img.shields.io/pypi/v/pyfluids)](https://pypi.org/project/pyfluids/)
+[![Python](https://img.shields.io/pypi/pyversions/pyfluids)](https://pypi.org/project/pyfluids/)
+[![License](https://img.shields.io/github/license/portyanikhin/PyFluids)](https://github.com/portyanikhin/PyFluids/blob/master/LICENSE)
+[![codecov](https://codecov.io/gh/portyanikhin/PyFluids/branch/main/graph/badge.svg?token=I1LL66AOJW)](https://codecov.io/gh/portyanikhin/PyFluids)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-black)](https://github.com/psf/black)
+
+Simple, full-featured, lightweight [CoolProp](http://www.coolprop.org) wrapper for Python.
+
+_**See [full documentation](https://github.com/portyanikhin/PyFluids).**_
