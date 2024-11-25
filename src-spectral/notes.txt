@@ -1,0 +1,8 @@
+ZOKG : tlak
+ZOM : brzina
+ZOE : entalpija
+jednadzba stijenke : temp. stijenke
+
+
+
+ako se riješi u 2d to ima veliku prednost što će se vremeske periodičnosti očitovat eksplicitno
