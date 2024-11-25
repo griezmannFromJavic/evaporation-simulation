@@ -6,3 +6,38 @@ jednadzba stijenke : temp. stijenke
 
 
 ako se riješi u 2d to ima veliku prednost što će se vremeske periodičnosti očitovat eksplicitno
+
+
+
+
+# Governing Equations
+
+## Mass Conservation Law
+∂ρ/∂t + ∂(ρu)/∂x = 0
+
+Solving for u:
+H = ∂/∂x
+f = -(1/ρ) ∂ρ/∂t
+
+## Momentum Conservation Law
+∂(ρu)/∂t + ∂(ρu²)/∂x + ∂p/∂x + (∂p/∂x)|_friction + ρg sin(β) = 0
+
+Solving for p:
+H = ∂/∂x
+f = -∂(ρu)/∂t -∂(ρu²)/∂x -(∂p/∂x)|_friction -ρg sin(β)
+
+## Energy Conservation Law
+∂/∂t[ρ(h + u²/2)] + ∂/∂x[ρu(h + u²/2)] + ρu g = ∂p/∂t + q_w
+
+Solving for h:
+H = ρ ∂/∂t + ρu ∂/∂x
+f = -∂/∂t (ρu²/2) - ∂/∂x (ρu³/2) - ρu g + ∂p/∂t + q_w
+
+## Heat Conduction in the Pipe Wall
+∂θ_s/∂t = (λ / ρc) ∂²θ_s/∂x² + φ_V / ρc
+
+Solvnig for θ_s:
+H = ∂/∂t
+f = (λ / ρc) ∂²θ_s/∂x² + φ_V / ρc
+
+
