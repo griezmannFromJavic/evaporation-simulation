@@ -41,3 +41,9 @@ H = ∂/∂t
 f = (λ / ρc) ∂²θ_s/∂x² + φ_V / ρc
 
 
+
+"Although it is possible to treat the time coordinate spectrally, and we shall describe some
+special cases and special algorithms where this has been done, it is generally most efficient
+to apply spectral methods only to the spatial dependence. The reason is that the timedependence can be marched forward, from one time level to another. Marching is much
+cheaper than computing the solution simultaneously over all space-time."
+
